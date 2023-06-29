@@ -13,6 +13,7 @@
 }
 
 body {
+    //position: relative;
     font-family: 'Inter', sans-serif;
     color: #000;
 }
@@ -25,6 +26,42 @@ body {
 a {
     text-decoration: none;
     color: #FFF;
+}
+
+div.rightSlide {
+    right: 0px;
+}
+
+path.liked {
+    fill: #FF8585;
+    stroke: #FF8585;
+}
+
+div.liked {
+    background: #FEF0F0;
+}
+
+.rightPanel {
+    position: fixed;
+    top: 0px;
+    right: -20vw;
+    height: 100vh;
+    width: 20vw;
+    z-index: 3;
+    padding: 30px;
+    background: #FFF;
+    transition: 0.4s ease;
+}
+
+.opacity {
+    visibility: hidden;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    background: rgba($color: #000000, $alpha: 0.2)
 }
 
 .header {
@@ -69,6 +106,7 @@ a {
                 transition: 0.4s ease;
                 fill:#9B9B9B;
                 stroke:#9B9B9B;
+                cursor: pointer;
                 
                 &:hover{
                     fill: #000;
@@ -151,10 +189,10 @@ a {
                     }
                 }
 
-                button {
+                .products__searchBtn {
                     position: absolute;
-                    top: 10px;
-                    left: 0px;
+                    top: 11px;
+                    left: 8px;
                     border: none;
                     background: inherit;
                     color: #E4E4E4;
@@ -164,6 +202,7 @@ a {
                         width: 23px;
                         fill: #E4E4E4;
                         transition: 0.4s ease;
+                        cursor: pointer;
 
                         &:hover {
                             fill: #000;
@@ -172,10 +211,11 @@ a {
                 }
             }
         }
+
         .products__list {
             width: 100%;
             display: grid;
-            grid-template-columns: auto auto auto auto;
+            grid-template-columns: 210px 210px 210px 210px;
             gap: 40px;
 
             .products__item {
@@ -218,20 +258,25 @@ a {
                     margin-bottom: 14px;
                     font-size: 14px;
                     font-weight: 400;
-                    line-height: 16px;
+                    hyphens: auto;
                 }
+                .products__costWrapper {
+                    position: absolute;
+                    left: 30px;
+                    bottom: 25px;
 
-                .products__tag {
-                    margin-bottom: 5px;
-                    color: #BDBDBD;
-                    font-size: 12px;
-                    text-transform: uppercase;
-                }
+                    .products__tag {
+                        margin-bottom: 3px;
+                        color: #BDBDBD;
+                        font-size: 12px;
+                        text-transform: uppercase;
+                    }
 
-                .products__cost {
-                    font-size: 16px;
-                    font-weight: 600;
-                    line-height: 18px;
+                    .products__cost {
+                        font-size: 16px;
+                        font-weight: 600;
+                        line-height: 18px;
+                    }
                 }
 
                 .products__add {
@@ -260,3 +305,64 @@ a {
     }
 }
 
+.panelAddItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .panelAddItem__title {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        svg {
+            height: 20px;
+            width: 20px;
+            transition: 0.4s ease;
+            fill:#9B9B9B;
+            cursor: pointer;
+            
+            &:hover{
+                fill: #000;
+            }
+        }
+    }
+    .panelAddItem__fields {
+        input {
+            margin-bottom: 30px;
+            padding-left: 10px;
+            border: none;
+            width: 100%;
+            height: 80px;
+            border: 2px solid #E4E4E4;
+            border-radius: 10px;
+            font-size: 16px;
+    
+            &:focus-visible {
+                outline: 2px solid #000;
+            }
+        }
+    }
+
+    button {
+        height: 55px;
+        background: #a3d664;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        color: #FFF;
+        cursor: pointer;
+        transition: 0.4s ease;
+        @include shadow(5px,5px );
+
+        &:hover {
+            background: #a1eb47;
+        }
+
+    }
+
+}
