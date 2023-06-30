@@ -41,6 +41,10 @@ div.liked {
     background: #FEF0F0;
 }
 
+div.inCart {
+    background: #5DE276;
+}
+
 .rightPanel {
     position: fixed;
     top: 0px;
@@ -62,6 +66,24 @@ div.liked {
     height: 100vh;
     z-index: 2;
     background: rgba($color: #000000, $alpha: 0.2)
+}
+
+.panelButton {
+    height: 55px;
+    width: 100%;
+    background: #a3d664;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #FFF;
+    cursor: pointer;
+    transition: 0.4s ease;
+    @include shadow(5px,5px );
+
+    &:hover {
+        background: #a1eb47;
+    }
+
 }
 
 .header {
@@ -104,8 +126,8 @@ div.liked {
                 height: 20px;
                 width: 20px;
                 transition: 0.4s ease;
-                fill:#9B9B9B;
-                stroke:#9B9B9B;
+                fill: #9B9B9B;
+                stroke: #9B9B9B;
                 cursor: pointer;
                 
                 &:hover{
@@ -238,6 +260,7 @@ div.liked {
                     align-items: center;
                     border: 1px solid #F3F3F3;
                     border-radius: 10px;
+                    transition: 0.4s ease;
                     cursor: pointer;
 
                     svg {
@@ -245,6 +268,7 @@ div.liked {
                         height: 18px;
                         fill: #e2dfdf;
                         stroke: #F3F3F3;
+                        transition: 0.4s ease;
                     }
                 }
 
@@ -291,12 +315,14 @@ div.liked {
                     border: 1px solid #F3F3F3;
                     border-radius: 10px;
                     cursor: pointer;
+                    transition: 0.4s ease;
 
                     svg {
                         width: 16px;
-                        height: 16 px;
+                        height: 16px;
                         fill: #e2dfdf;
                         stroke: #F3F3F3;
+                        transition: 0.4s ease;
                     }
                 }
             }
@@ -305,11 +331,11 @@ div.liked {
     }
 }
 
-.panelAddItem {
+.panelAdd {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    .panelAddItem__title {
+    .panelAdd__title {
         margin-bottom: 30px;
         display: flex;
         justify-content: space-between;
@@ -331,7 +357,8 @@ div.liked {
             }
         }
     }
-    .panelAddItem__fields {
+    .panelAdd__fields {
+
         input {
             margin-bottom: 30px;
             padding-left: 10px;
@@ -347,22 +374,119 @@ div.liked {
             }
         }
     }
+}
 
-    button {
-        height: 55px;
-        background: #a3d664;
-        border: none;
-        border-radius: 10px;
-        font-size: 18px;
-        color: #FFF;
-        cursor: pointer;
-        transition: 0.4s ease;
-        @include shadow(5px,5px );
+.panelCart {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-        &:hover {
-            background: #a1eb47;
+    .panelCart__title {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
         }
 
+        svg {
+            height: 20px;
+            width: 20px;
+            transition: 0.4s ease;
+            fill:#9B9B9B;
+            cursor: pointer;
+            
+            &:hover{
+                fill: #000;
+            }
+        }
+    }
+    .panelCart__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 119px;
+        padding: 0px 10px;
+        margin-bottom: 20px;
+        border: 1px solid #E4E4E4;
+        border-radius: 15px;
+
+        img {
+            margin-right: 10px;
+            width: 70px;
+            height: 70px;
+        }
+
+        .panelCart__itemTitle {
+            width: 50%;
+            text-overflow: ellipsis;
+            .panelCart__about {
+                margin-bottom: 8px;
+                font-size: 14px;
+                line-height: 16px;
+                hyphens: auto;
+                
+            }
+
+            .panelCart__cost {
+                font-size: 14px;
+                font-weight: 600;
+            }
+        }
+
+        .panelCart__deleteBtn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 32px;
+            width: 32px;
+            border: 1px solid #E4E4E4;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            
+            &:hover {
+                border-color: #000;
+            }
+
+            &:hover svg{
+                fill: #000;
+            }
+
+            svg {
+                height: 11px;
+                width: 11px;
+                fill: #9B9B9B;
+                transition: 0.4s ease;
+            }
+        }
     }
 
+    .panelCart__order {
+
+        .panelCart__money {
+            display: flex;
+            margin-bottom: 25px;
+            align-items: baseline;
+
+            .panelCart__titleOrder {
+                margin-right: 7px;
+                font-size: 16px;
+            }
+
+            .panelCart__ellipsis {
+                margin-right: 7px;
+                border-bottom: 1px dashed #E4E4E4;
+                flex-grow: 1;
+            }
+
+            .panelCart__moneyCost {
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+    }
 }

@@ -5,26 +5,29 @@ const DOMBaseElements = {
     addBtn: document.querySelector('#panelAddBtn')
 }
 
-const DOMViewElements = {
-    addPanelBtn: document.querySelector('#openPanelBtn'),
+const DOMViewAddElements = {
+    openPanelBtn: document.querySelector('#openPanelAddBtn'),
     panelAddProduct: document.querySelector('#panelAddProduct'),
-    panelOpacity: document.querySelector('#panelOpacity'),
-    closeBtn: document.querySelector('#panelAddProductCloseBtn')
+    opacity: document.querySelector('#opacity'),
+    closeBtn: document.querySelector('#panelAddCloseBtn')
 }
     
     
 DOMBaseElements.addBtn.addEventListener('click', async () => {
     if(DOMBaseElements.title.value && DOMBaseElements.imageUrl.value && DOMBaseElements.cost.value) {
-        const user = JSON.parse(localStorage.getItem('user'))
-        const dataBase = new DataBase('https://649c69660480757192381e95.mockapi.io', user)
+        const dataBase = new DataBase('https://649c69660480757192381e95.mockapi.io')
+        const productStore = new ProductsStore('.products__list')
 
-        await dataBase.addProduct({
+        const newProduct = await dataBase.addProduct({
             title: DOMBaseElements.title.value,
             imageUrl: DOMBaseElements.imageUrl.value,
             cost: DOMBaseElements.cost.value,
             inCart: false,
-            isLiked:false
+            isLiked: false,
+            purchase: false 
         })
+
+        productStore.add(newProduct)
 
         DOMBaseElements.title.value = ''
         DOMBaseElements.imageUrl.value = ''
@@ -35,12 +38,12 @@ DOMBaseElements.addBtn.addEventListener('click', async () => {
     }
 })
 
-DOMViewElements.addPanelBtn.addEventListener('click', () => {
-    DOMViewElements.panelAddProduct.classList.toggle('rightSlide')
-    DOMViewElements.panelOpacity.style.visibility="visible";
+DOMViewAddElements.openPanelBtn.addEventListener('click', () => {
+    DOMViewAddElements.panelAddProduct.classList.toggle('rightSlide')
+    DOMViewAddElements.opacity.style.visibility="visible";
 })
 
-DOMViewElements.closeBtn.addEventListener('click', () => {
-    DOMViewElements.panelAddProduct.classList.toggle('rightSlide')
-    DOMViewElements.panelOpacity.style.visibility="hidden";
+DOMViewAddElements.closeBtn.addEventListener('click', () => {
+    DOMViewAddElements.panelAddProduct.classList.toggle('rightSlide')
+    DOMViewAddElements.opacity.style.visibility="hidden";
 })
