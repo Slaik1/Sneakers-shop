@@ -26,7 +26,7 @@ class CartsStore {
 
         const cost = document.createElement('p')
         cost.classList.add('panelCart__cost')
-        cost.innerText = element.cost
+        cost.innerText = Number(element.cost).toLocaleString('ru') + ' руб.'
         title.appendChild(cost)
 
         div.appendChild(title)
@@ -40,11 +40,19 @@ class CartsStore {
             div.remove()
             
             const dataBase = new DataBase('https://649c69660480757192381e95.mockapi.io') 
-            const productsStore = new ProductsStore('.products__list')
+            const productsStore = new ProductsStore('#products__list', '#totalCost')
             await dataBase.changeParamsProduct(element.id, {inCart: false})
 
-            const newProducts = await dataBase.getProducts()
-            productsStore.setAll(newProducts)
+            const pageName = document.title
+            let newProducts
+
+            if (pageName === 'Магазин кроссовок') {
+                newProducts = await dataBase.getProducts()
+            } else if (pageName === 'Мои закладки') {
+                newProducts = await dataBase.getParamProducts('isLiked', true)
+            } else if (pageName === 'Мои покупки') {
+                newProducts = await dataBase.getParamProducts('purchase', true)
+            }
 
             for (let index = 0; index < this.products.length; index++) {
                 if (this.products[index].id === element.id) {
@@ -52,9 +60,10 @@ class CartsStore {
                 }
             }
 
+            productsStore.setAll(newProducts)
+
             this.setCost()
         })
-
         return div
     }
 

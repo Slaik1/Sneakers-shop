@@ -1,5 +1,6 @@
 @import "normalize.scss";
 @import "reset.scss";
+@import "preloader.scss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @mixin shadow($x, $y) {
@@ -13,7 +14,6 @@
 }
 
 body {
-    //position: relative;
     font-family: 'Inter', sans-serif;
     color: #000;
 }
@@ -46,11 +46,14 @@ div.inCart {
 }
 
 .rightPanel {
+    $panelCartWidth: 400px;
+
+    position: relative;
     position: fixed;
     top: 0px;
-    right: -20vw;
+    right: -$panelCartWidth;
     height: 100vh;
-    width: 20vw;
+    width: $panelCartWidth;
     z-index: 3;
     padding: 30px;
     background: #FFF;
@@ -65,7 +68,7 @@ div.inCart {
     width: 100vw;
     height: 100vh;
     z-index: 2;
-    background: rgba($color: #000000, $alpha: 0.2)
+    background: rgba($color: #000000, $alpha: 0.3)
 }
 
 .panelButton {
@@ -100,6 +103,11 @@ div.inCart {
             display: flex;
             align-items: center;
 
+            a {
+                display: flex;
+                align-items: center;
+            }
+
             img {
                 margin-right: 16px;
             }
@@ -109,6 +117,7 @@ div.inCart {
                 line-height: 25px;
                 font-size: 20px;
                 font-weight: 800;
+                color: #000;
             }
 
             p {
@@ -177,7 +186,8 @@ div.inCart {
 }
 
 .products {
-    
+    position: relative;
+    padding-bottom: 20px;
     .container{
 
         .products__title {
@@ -276,6 +286,7 @@ div.inCart {
                     width: 133px;
                     height: 112px;
                     margin-bottom: 14px;
+                    object-fit: contain;
                 }
 
                 .products__title {
@@ -283,6 +294,7 @@ div.inCart {
                     font-size: 14px;
                     font-weight: 400;
                     hyphens: auto;
+                    line-height: 16px;
                 }
                 .products__costWrapper {
                     position: absolute;
@@ -395,6 +407,7 @@ div.inCart {
         svg {
             height: 20px;
             width: 20px;
+            z-index: 1;
             transition: 0.4s ease;
             fill:#9B9B9B;
             cursor: pointer;
@@ -418,6 +431,7 @@ div.inCart {
             margin-right: 10px;
             width: 70px;
             height: 70px;
+            object-fit: contain;
         }
 
         .panelCart__itemTitle {
@@ -488,5 +502,72 @@ div.inCart {
                 font-weight: 600;
             }
         }
+    }
+}
+
+.finalPanel {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #FFF;
+    visibility: hidden;
+    
+    img {
+        margin-bottom: 20px;
+    }
+
+    .finalPanel__title {
+        margin-bottom: 9px;
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .finalPanel__about {
+        text-align: center;
+        font-size: 16px;
+        color: #757272;
+    }
+}
+
+.panelCart__ordered {
+    visibility: hidden;
+
+    img {
+        width: 83px;
+        height: 120px;
+    }
+
+    .finalPanel__title {
+        color: #87C20A;
+    }
+}
+
+.products__noItems {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+
+    img {
+        margin-bottom: 24px;
+    }
+
+    .products__title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 11px;
+    }
+
+    .products__about {
+        font-size: 16px;
+        color: #757272;
     }
 }

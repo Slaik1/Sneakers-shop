@@ -4,82 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Магазин кроссовок</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Мои покупки</title>
     <link rel="icon" type="image/x-icon" href="/icons/fav.ico">
     <meta name="description" content="Best sneakers in Ohio">
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-    />
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script defer src="./js/stores/product.js"></script>
-    <script defer src="./js/stores/cart.js"></script>
-    <script defer src="./js/dataBase.js"></script>
-    <script defer src="./js/swiper.js"></script>
-    <script defer src="./js/panels/addProduct.js"></script>
-    <script defer src="./js/panels/cart.js"></script>
-    <script defer src="./js/loads/index.js"></script>
+    <script defer src="../js/stores/product.js"></script>
+    <script defer src="../js/stores/cart.js"></script>
+    <script defer src="../js/dataBase.js"></script>
+    <script defer src="../js/panels/addProduct.js"></script>
+    <script defer src="../js/panels/cart.js"></script>
+    <script defer src="../js/loads/purchase.js"></script>
 </head>
 <body>
     <header class="header"> 
         <div class="container">
             <div class="header__logo">
-                <img src="./icons/header__logo.svg" alt="logo">
-                <div class="header__text">
-                    <h1>react sneakers</h1>
-                    <p>Магазин лучших кроссовок</p>
-                </div>
+                <a href="../index.html">
+                    <img src="../icons/header__logo.svg" alt="logo">
+                    <div class="header__text">
+                            <h1>react sneakers</h1>
+                        <p>Магазин лучших кроссовок</p>
+                    </div>
+                </a>
             </div>
-            <ul class="header__user"> 
+            <ul class="header__user">
                 <li class="header__shopcart" >
                     <svg id="openPanelCartBtn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path d="M164.96 300.004h.024c.02 0 .04-.004.059-.004H437a15.003 15.003 0 0 0 14.422-10.879l60-210a15.003 15.003 0 0 0-2.445-13.152A15.006 15.006 0 0 0 497 60H130.367l-10.722-48.254A15.003 15.003 0 0 0 105 0H15C6.715 0 0 6.715 0 15s6.715 15 15 15h77.969c1.898 8.55 51.312 230.918 54.156 243.71C131.184 280.64 120 296.536 120 315c0 24.812 20.188 45 45 45h272c8.285 0 15-6.715 15-15s-6.715-15-15-15H165c-8.27 0-15-6.73-15-15 0-8.258 6.707-14.977 14.96-14.996zM477.114 90l-51.43 180H177.032l-40-180zM150 405c0 24.813 20.188 45 45 45s45-20.188 45-45-20.188-45-45-45-45 20.188-45 45zm45-15c8.27 0 15 6.73 15 15s-6.73 15-15 15-15-6.73-15-15 6.73-15 15-15zM362 405c0 24.813 20.188 45 45 45s45-20.188 45-45-20.188-45-45-45-45 20.188-45 45zm45-15c8.27 0 15 6.73 15 15s-6.73 15-15 15-15-6.73-15-15 6.73-15 15-15zm0 0"  data-original="#000000"/></g></svg>
                     <p id="totalCost"></p>
                 </li>
                 <li>
-                    <a href="./pages/liked.html">
+                    <a href="./liked.html">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 64 64" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path d="M45.5 4A18.53 18.53 0 0 0 32 9.86 18.5 18.5 0 0 0 0 22.5C0 40.92 29.71 59 31 59.71a2 2 0 0 0 2.06 0C34.29 59 64 40.92 64 22.5A18.52 18.52 0 0 0 45.5 4ZM32 55.64C26.83 52.34 4 36.92 4 22.5a14.5 14.5 0 0 1 26.36-8.33 2 2 0 0 0 3.27 0A14.5 14.5 0 0 1 60 22.5c0 14.41-22.83 29.83-28 33.14Z" data-original="#000000"/></g></svg>
                     </a>
                 </li>
                 <li>
-                    <a href="./pages/purchase.html">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path d="M437.02 74.98C388.668 26.63 324.379 0 256 0S123.332 26.629 74.98 74.98C26.63 123.332 0 187.621 0 256s26.629 132.668 74.98 181.02C123.332 485.37 187.621 512 256 512s132.668-26.629 181.02-74.98C485.37 388.668 512 324.379 512 256s-26.629-132.668-74.98-181.02zM111.105 429.297c8.454-72.735 70.989-128.89 144.895-128.89 38.96 0 75.598 15.179 103.156 42.734 23.281 23.285 37.965 53.687 41.742 86.152C361.641 462.172 311.094 482 256 482s-105.637-19.824-144.895-52.703zM256 269.507c-42.871 0-77.754-34.882-77.754-77.753C178.246 148.879 213.13 114 256 114s77.754 34.879 77.754 77.754c0 42.871-34.883 77.754-77.754 77.754zm170.719 134.427a175.9 175.9 0 0 0-46.352-82.004c-18.437-18.438-40.25-32.27-64.039-40.938 28.598-19.394 47.426-52.16 47.426-89.238C363.754 132.34 315.414 84 256 84s-107.754 48.34-107.754 107.754c0 37.098 18.844 69.875 47.465 89.266-21.887 7.976-42.14 20.308-59.566 36.542-25.235 23.5-42.758 53.465-50.883 86.348C50.852 364.242 30 312.512 30 256 30 131.383 131.383 30 256 30s226 101.383 226 226c0 56.523-20.86 108.266-55.281 147.934zm0 0" data-original="#000000"/></g></svg>
-                    </a>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path d="M437.02 74.98C388.668 26.63 324.379 0 256 0S123.332 26.629 74.98 74.98C26.63 123.332 0 187.621 0 256s26.629 132.668 74.98 181.02C123.332 485.37 187.621 512 256 512s132.668-26.629 181.02-74.98C485.37 388.668 512 324.379 512 256s-26.629-132.668-74.98-181.02zM111.105 429.297c8.454-72.735 70.989-128.89 144.895-128.89 38.96 0 75.598 15.179 103.156 42.734 23.281 23.285 37.965 53.687 41.742 86.152C361.641 462.172 311.094 482 256 482s-105.637-19.824-144.895-52.703zM256 269.507c-42.871 0-77.754-34.882-77.754-77.753C178.246 148.879 213.13 114 256 114s77.754 34.879 77.754 77.754c0 42.871-34.883 77.754-77.754 77.754zm170.719 134.427a175.9 175.9 0 0 0-46.352-82.004c-18.437-18.438-40.25-32.27-64.039-40.938 28.598-19.394 47.426-52.16 47.426-89.238C363.754 132.34 315.414 84 256 84s-107.754 48.34-107.754 107.754c0 37.098 18.844 69.875 47.465 89.266-21.887 7.976-42.14 20.308-59.566 36.542-25.235 23.5-42.758 53.465-50.883 86.348C50.852 364.242 30 312.512 30 256 30 131.383 131.383 30 256 30s226 101.383 226 226c0 56.523-20.86 108.266-55.281 147.934zm0 0" data-original="#000000"/></g></svg>
                 </li>
                 <li>
                     <svg id="openPanelAddBtn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g data-name="03 Login"><path d="M256 512a25 25 0 0 1-25-25V25a25 25 0 0 1 50 0v462a25 25 0 0 1-25 25z" data-original="#000000"/><path d="M487 281H25a25 25 0 0 1 0-50h462a25 25 0 0 1 0 50z" data-original="#000000"/></g></g></svg>
                 </li>
-
             </ul>
         </div>
     </header>
-    <div class="offer">
-        <div class="container">
-            <div class="swiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide"><img src="./img/slider/stan.jpg" alt=""></div>
-                  <div class="swiper-slide"><img src="./img/slider/nike.jpg" alt=""></div>
-                  <div class="swiper-slide"><img src="./img/slider/black_friday.jpg" alt=""></div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-              </div>
-        </div>
-    </div>
     <div class="products">
         <div class="container">
             <div class="products__title">
-                <h2>Все кроссовки</h2>
-                <div class="products__search">
-                    <input id="searchField" type="text" placeholder="Поиск...">
-                    <div class="products__searchBtn" id="searchBtn">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 6.35 6.35" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path d="M2.894.511a2.384 2.384 0 0 0-2.38 2.38 2.386 2.386 0 0 0 2.38 2.384c.56 0 1.076-.197 1.484-.523l.991.991a.265.265 0 0 0 .375-.374l-.991-.992a2.37 2.37 0 0 0 .523-1.485C5.276 1.58 4.206.51 2.894.51zm0 .53c1.026 0 1.852.825 1.852 1.85S3.92 4.746 2.894 4.746s-1.851-.827-1.851-1.853.825-1.852 1.851-1.852z" paint-order="stroke fill markers" data-original="#000000"/></g></svg>
-                    </div>
-                </div>
+                <h2>Мои покупки</h2>
             </div>
             <div class="products__list" id="products__list">
-
+            </div>
+            <div class="products__noItems" id="noPurchaseItems">
+                <img src="../img/purchase__noItems.png" alt="">
+                <p class="products__title">У вас нет заказов</p>
+                <p class="products__about">Оформите хотя бы один заказ.</p>
             </div>
         </div>
         <div class="holder" id="preloader">
@@ -118,16 +96,18 @@
             <button class="panelButton" id="panelOrderBtn">Оформить заказ</button>
         </div>
         <div class="panelCart__empty finalPanel" id="emptyCart">
-            <img src="./img/cart__empty.png" alt="">
+            <img src="../img/cart__empty.png" alt="">
             <p class="finalPanel__title">Корзина пустая</p>
             <p class="finalPanel__about">Добавьте хотя бы одну пару <br> кроссовок, чтобы сделать заказ.</p>
         </div>
         <div class="panelCart__ordered finalPanel" id="orderedPanel">
-            <img src="./img/cart__ordered.png" alt="">
+            <img src="../img/cart__ordered.png" alt="">
             <p class="finalPanel__title">Заказ оформлен!</p>
             <p class="finalPanel__about">Ваш заказ скоро будет передан <br> курьерской доставке</p>
         </div>
     </div>
-    <div class="opacity" id="opacity"></div>
+    <div class="opacity" id="opacity">
+
+    </div>
 </body>
 </html>

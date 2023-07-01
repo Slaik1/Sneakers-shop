@@ -16,7 +16,7 @@ const DOMViewAddElements = {
 DOMBaseElements.addBtn.addEventListener('click', async () => {
     if(DOMBaseElements.title.value && DOMBaseElements.imageUrl.value && DOMBaseElements.cost.value) {
         const dataBase = new DataBase('https://649c69660480757192381e95.mockapi.io')
-        const productStore = new ProductsStore('.products__list')
+        const productStore = new ProductsStore('#products__list', '#totalCost')
 
         const newProduct = await dataBase.addProduct({
             title: DOMBaseElements.title.value,
